@@ -8,6 +8,7 @@ RUN set -x -e; \
         locales \
         scons flake8 shellcheck \
         haskell-platform haskell-platform-prof libghc-criterion-dev cabal-install \
+        hdevtools hlint \
         gosu sudo
 
 # setup sudo and locale

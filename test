@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e -x -o pipefail
+
+find . -name '*.hs' -exec hlint {} ';'
+find . -name '*.hs' -exec hdevtools check {} ';'
+scons
+

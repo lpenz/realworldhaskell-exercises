@@ -6,4 +6,4 @@ install:
   - docker build -t container:latest .
   - docker ps -a
 script:
-  - docker run -it --rm -v $PWD:/home/user/work -e MY_UID=$UID container scons
+  - docker run -it --rm -v $PWD:/home/user/work -e MY_UID=$UID container ./test

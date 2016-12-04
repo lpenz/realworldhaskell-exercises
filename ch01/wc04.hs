@@ -11,4 +11,4 @@ myinteract f = do
         putStr $ f c
 
 main = myinteract wordCount
-    where wordCount input = show (length (input)) ++ "\n"
+    where wordCount input = show (length input) ++ "\n"
