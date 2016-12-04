@@ -1,0 +1,8 @@
+/.sconsign.dblite
+*.hi
+*.o
+
+/ch01/wc03
+/ch01/wc04
+/ch01/ch01-wc03.txt
+/ch01/ch01-wc04.txt
