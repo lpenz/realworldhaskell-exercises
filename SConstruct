@@ -42,3 +42,5 @@ cmd('ch04/ch04-firstword.txt', 'ch04/ch04.md',
 ghcmain('ch04/transpose')
 cmd('ch04/ch04-transpose.txt', 'ch04/helloworld.txt',
     './ch04/transpose', '$SOURCE $TARGET')
+ghcmod('ch04/AsInt')
+ghcmod('ch04/Folds')
