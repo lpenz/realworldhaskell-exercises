@@ -1,3 +1,5 @@
+# -*- python -*-
+
 import os
 
 env = Environment(ENV=os.environ)
@@ -15,6 +17,7 @@ def cmd(target, source, executable, args='$SOURCE > $TARGET'):
     env.Command(target, source, executable + ' ' + args)
     env.Depends(target, executable)
 
+
 # Chapter 01
 ghcmain('ch01/wc03')
 ghcmain('ch01/wc04')
@@ -22,13 +25,14 @@ cmd('ch01/ch01-wc03.txt', 'ch01/ch01.md', './ch01/wc03')
 cmd('ch01/ch01-wc04.txt', 'ch01/ch01.md', './ch01/wc04')
 
 # Chapter 03
-ghcmod('ch03/Directions')
+ghcmain('ch03/Directions')
 ghcmod('ch03/Intersperse')
 ghcmod('ch03/ListMean')
 ghcmod('ch03/ListSort')
 ghcmod('ch03/MyLen')
 ghcmod('ch03/MyTree')
 ghcmod('ch03/Palindrome')
+cmd('ch03/convexhull-ok.txt', [], './ch03/Directions', ' && md5sum ./ch03/Directions | tee $TARGET')
 
 # Chapter 04
 ghcmod('ch04/Ch04')
