@@ -2,6 +2,9 @@
 
 import os
 
+if False:
+    Environment = None
+
 env = Environment(ENV=os.environ)
 
 
@@ -32,7 +35,8 @@ ghcmod('ch03/ListSort')
 ghcmod('ch03/MyLen')
 ghcmod('ch03/MyTree')
 ghcmod('ch03/Palindrome')
-cmd('ch03/convexhull-ok.txt', [], './ch03/Directions', ' && md5sum ./ch03/Directions | tee $TARGET')
+cmd('ch03/convexhull-ok.txt', [], './ch03/Directions',
+    ' && md5sum ./ch03/Directions | tee $TARGET')
 
 # Chapter 04
 ghcmod('ch04/Ch04')
