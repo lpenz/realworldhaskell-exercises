@@ -10,10 +10,12 @@ env = Environment(ENV=os.environ)
 
 def ghcmain(base):
     env.Command(base, base + '.hs', 'ghc -o $TARGET $SOURCE')
+    env.SideEffect(['%s.o' % base, '%s.hi' % base], 'ch05/Main')
 
 
 def ghcmod(base):
     env.Command(base + '.o', base + '.hs', 'ghc $SOURCE')
+    env.SideEffect(base + '.hi', base + '.o')
 
 
 def cmd(target, source, executable, args='$SOURCE > $TARGET'):
