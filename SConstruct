@@ -50,3 +50,19 @@ cmd('ch04/ch04-transpose.txt', 'ch04/helloworld.txt',
     './ch04/transpose', '$SOURCE $TARGET')
 ghcmod('ch04/AsInt')
 ghcmod('ch04/Folds')
+
+
+# Chapter 05
+def ghcmod05(base):
+    env.Command('ch05/%s.o' % base, 'ch05/%s.hs' % base,
+                'ghc -c ${TARGET.file} ${SOURCE.file}', chdir='ch05')
+    env.SideEffect('ch05/%s.hi' % base, 'ch05/%s.o' % base)
+
+
+ghcmod05('PutJSON')
+ghcmod05('Prettify')
+ghcmod05('PrettyJSON')
+ghcmod05('SimpleJSON')
+env.Command('ch05/Main', 'ch05/Main.hs',
+            'ghc -o ${TARGET.file} ${SOURCE.file}', chdir='ch05')
+env.SideEffect(['ch05/Main.o', 'ch05/Main.hi'], 'ch05/Main')
