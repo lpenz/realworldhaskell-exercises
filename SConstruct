@@ -9,7 +9,8 @@ env = Environment(ENV=os.environ)
 
 
 def ghcmain(base):
-    env.Command(base, base + '.hs', 'ghc -o $TARGET $SOURCE')
+    d = os.path.dirname(base)
+    env.Command(base, base + '.hs', 'ghc -o ${TARGET.file} ${SOURCE.file}', chdir=d)
     env.SideEffect(['%s.o' % base, '%s.hi' % base], 'ch05/Main')
 
 
