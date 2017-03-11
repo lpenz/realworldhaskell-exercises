@@ -67,3 +67,9 @@ ghcmod05('SimpleJSON')
 env.Command('ch05/Main', 'ch05/Main.hs',
             'ghc -o ${TARGET.file} ${SOURCE.file}', chdir='ch05')
 env.SideEffect(['ch05/Main.o', 'ch05/Main.hi'], 'ch05/Main')
+
+# Chapter 12
+ghcmain('ch12/barcode')
+ghcmod('ch12/Parse')
+env.Depends('ch12/barcode', 'ch12/Parse.hi')
+cmd('ch12/barcode.txt', 'ch12/barcode-luminance-converted.ppm', 'ch12/barcode')
